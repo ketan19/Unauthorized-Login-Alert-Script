@@ -1,0 +1,10 @@
+When you want to receive an alert when someone uses the shared service account from a computer he isnt supposed to. 
+For example : 
+Users A,B,C have the credentials to the service account domainname/serviceaccount.
+USer C moves to a different team but still has these credentials and its not possible to change this username password for every user that changes teams. We can whitelist the user machines that this account can be used for. For any other machine it should give an alert.
+
+I am confident this can be achieved by using some tools but i write simple scripts to do this and has worked flawlessly so far.
+
+
+Solution:
+First bat file is stored in startup folder of every server and is run for all logins. When it sees the domainname/serviceaccount being used and matches it with the user machines names that are mentioned(whitelist). it makes an entry of it when the machine name matches for loggin purposes and if the user machine name is not in the whitelist it runs the VB script using this information to send an email. 
